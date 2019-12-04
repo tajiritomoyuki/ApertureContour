@@ -1,21 +1,19 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup
+import aperture_contour.__init__ as meta
 
-name = "aperture_contour"
-version = "1.0"
-description = "draw aperture contours"
-author = "Tomoyuki Tajiri"
-url = "https://github.com/tajiritomoyuki/aperture_contour"
-install_requires = ["numpy"]
+__name__ = "aperture_contour"
+__install_requires__ = ["numpy"]
 
-setup(name=NAME,
-      version=version,
-      description=description,
-      author=author,
-      author_email=author,
-      url=url,
-      packages=["aperture_contour"],
-      install_requires=install_requires,
+setup(name=__name__,
+      version=meta.__version__,
+      description=meta.__description__,
+      author=meta.__author__,
+      author_email=meta.__author_email__,
+      url=meta.__url__,
+      packages=[""],
+      package_dir={"": "aperture_contour"},
+      install_requires=__install_requires__,
       zip_safe=False,
      )

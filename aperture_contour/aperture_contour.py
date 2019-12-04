@@ -1,10 +1,12 @@
-#coding:utf-8
+#-*-coding:utf-8-*-
 import numpy as np
+
+__all__ = ["contour_points", "draw_contours"]
 
 class ApertureContourException(Exception):
     pass
 
-def is_valid_aperture(aperture):
+def __is_valid_aperture__(aperture):
     if not isinstance(aperture, np.ndarray):
         raise ApertureContourException("aperture must be a numpy.ndarray class")
     if aperture.dtype not in (np.int8, np.int16, np.int32, np.int64, np.uint8, np.uint16, np.uint32, np.uint64, np.bool):
@@ -15,7 +17,7 @@ def is_valid_aperture(aperture):
 
 
 # Try all four directions to check if there is a direction to proceed
-def go_point(point, points):
+def __move_point__(point, points):
     directions = [(0.5, 0), (0, 0.5), (-0.5, 0), (0, -0.5)]
     #Try each directions
     for direction in directions:
@@ -31,8 +33,8 @@ def go_point(point, points):
     else:
         return None, points
 
-def make_contours(aperture):
-    aperture = is_valid_aperture(aperture)
+def contour_points(aperture):
+    aperture = __is_valid_aperture__(aperture)
     # the coordinates of each point of the aperture
     h, w = np.where(aperture != 0)
     pixs = np.vstack((w, h)).T
@@ -71,7 +73,7 @@ def make_contours(aperture):
         # draw one contour
         while point is not None:
             contour.append(point)
-            point, points_all = go_point(point, points_all)
+            point, points_all = __move_point__(point, points_all)
         #Extract edge points
         contour_arr = np.array(contour)
         diffs = np.diff(contour_arr, 2, axis=0)
@@ -81,7 +83,7 @@ def make_contours(aperture):
     return lines
 
 def draw_contours(canvas, aperture, **kwargs):
-    points_list = make_contours(aperture)
+    points_list = contour_points(aperture)
     for points in points_list:
         for i in range(len(points) - 1):
             canvas.plot((points[i][0], points[i+1][0]), (points[i][1], points[i+1][1]),  "-", **kwargs)
