@@ -1,6 +1,6 @@
 # ApertureContour
 
-## instalation
+## install
 
 ```
 git clone https://github.com/tajiritomoyuki/aperture_contour.git
