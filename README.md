@@ -24,7 +24,6 @@ aperture_bkg = SampleImages.aperture_bkg
 
 draw sample images
 ```
-%matplotlib notebook
 figure = plt.figure(figsize=(10, 5))
 ax1 = figure.add_subplot(131)
 ax2 = figure.add_subplot(132)
