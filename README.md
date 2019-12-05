@@ -1,5 +1,6 @@
 # ApertureContour
 aperture_contour is fast and simple tools which draws the contours of the apertures in pyplot canvas.
+It can be used in various observation such as Kepler and TESS.
 
 ## install
 
@@ -45,3 +46,5 @@ draw_contours(plt, aperture_bkg, "b-.")
 plt.show()
 ```
 ![sample](https://user-images.githubusercontent.com/22582770/70207908-72059a80-176f-11ea-87ef-261eeb2edbf8.png)
+
+very easy to draw contours which is used for apertures!
