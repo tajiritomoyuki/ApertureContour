@@ -35,8 +35,7 @@ ax2.set_title("aperture")
 ax3.set_title("aperture_bkg")
 plt.show()
 ```
-![3img](https://github.com/tajiritomoyuki/aperture_contour/tree/tajiritomoyuki-image/3img.png?raw=true)
-
+![3img](https://user-images.githubusercontent.com/22582770/70207909-729e3100-176f-11ea-9a07-81673b8c93cd.png)
 
 using aperture_contour
 ```
@@ -45,4 +44,4 @@ draw_contours(plt, aperture, color="white")
 draw_contours(plt, aperture_bkg, "b-.")
 plt.show()
 ```
-![sample](https://github.com/tajiritomoyuki/aperture_contour/tree/tajiritomoyuki-image/sample.png?raw=true)`
+![sample](https://user-images.githubusercontent.com/22582770/70207908-72059a80-176f-11ea-87ef-261eeb2edbf8.png)
