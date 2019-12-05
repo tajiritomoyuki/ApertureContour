@@ -82,9 +82,13 @@ def contour_points(aperture):
         lines.append(contour_point)
     return lines
 
-def draw_contours(canvas, aperture, **kwargs):
+def draw_contours(canvas, aperture, *args, **kwargs):
+    if len(args) == 0 and ("linestyle" not in kwargs.keys() or "ls" not in kwargs.keys()):
+        kwargs.update({"ls" : "-"})
+    if len(args) == 0 and ("color" not in kwargs.keys() or "c" not in kwargs.keys()):
+        kwargs.update({"color" : "white"})
     points_list = contour_points(aperture)
     for points in points_list:
         for i in range(len(points) - 1):
-            canvas.plot((points[i][0], points[i+1][0]), (points[i][1], points[i+1][1]),  "-", **kwargs)
+            canvas.plot((points[i][0], points[i+1][0]), (points[i][1], points[i+1][1]), *args, **kwargs)
     return canvas
