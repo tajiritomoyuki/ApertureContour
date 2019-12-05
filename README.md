@@ -16,6 +16,7 @@ load libraries and data set
 ```
 import matplotlib.pyplot as plt
 from aperture_contour import draw_contours, SampleImages
+
 img = SampleImages.img
 aperture = SampleImages.aperture
 aperture_bkg = SampleImages.aperture_bkg
