@@ -83,9 +83,9 @@ def contour_points(aperture):
     return lines
 
 def draw_contours(canvas, aperture, *args, **kwargs):
-    if len(args) == 0 and ("linestyle" not in kwargs.keys() or "ls" not in kwargs.keys()):
+    if len(args) == 0 and ("linestyle" not in kwargs.keys() and "ls" not in kwargs.keys()):
         kwargs.update({"ls" : "-"})
-    if len(args) == 0 and ("color" not in kwargs.keys() or "c" not in kwargs.keys()):
+    if len(args) == 0 and ("color" not in kwargs.keys() and "c" not in kwargs.keys()):
         kwargs.update({"color" : "white"})
     points_list = contour_points(aperture)
     for points in points_list:
