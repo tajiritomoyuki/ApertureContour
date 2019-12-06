@@ -1,18 +1,22 @@
 # ApertureContour
-aperture_contour is fast and simple tools which draws the contours of the apertures in pyplot canvas.
-It can be used in various observation such as Kepler and TESS.
+aperture_contour is the fast and simple tool which draws the contours of the apertures in pyplot canvas.
+This tool can be used in various observation such as Kepler and TESS.
 
-## install
+## Installation
 
+### From GitHub
+Clone the repository from github and do the normal installation of python package
 ```
 git clone https://github.com/tajiritomoyuki/aperture_contour.git
 cd aperture_contour
 python setup.py install
 ```
 
-## sample
+## Examples
+The usage of aperture_contour is very simple; what you have to do is to prepare a flux image and aperture bitmasks.
+Then aperture_contour draws intuitive contours of apertures with `draw_contours`.
 
-load libraries and data set
+First, import libraries and load data set
 ```
 import matplotlib.pyplot as plt
 from aperture_contour import draw_contours, SampleImages
@@ -22,7 +26,7 @@ aperture = SampleImages.aperture
 aperture_bkg = SampleImages.aperture_bkg
 ```
 
-draw sample images
+Draw sample images
 ```
 figure = plt.figure(figsize=(10, 5))
 ax1 = figure.add_subplot(131)
@@ -38,7 +42,7 @@ plt.show()
 ```
 ![3img](https://user-images.githubusercontent.com/22582770/70207909-729e3100-176f-11ea-9a07-81673b8c93cd.png)
 
-using aperture_contour
+Use aperture_contour
 ```
 plt.imshow(img)
 draw_contours(plt, aperture, color="white")
@@ -47,4 +51,4 @@ plt.show()
 ```
 ![sample](https://user-images.githubusercontent.com/22582770/70207908-72059a80-176f-11ea-87ef-261eeb2edbf8.png)
 
-very easy to draw contours which is used for apertures!
+Very easy to draw contours which are used for apertures!
